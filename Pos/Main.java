@@ -18,7 +18,6 @@ public class Main {
 
         String orderSummary = "";
         String itemName = "";
-        String receiptItems = "";
 
         int itemPrice = 0;
         double itemTotal = itemPrice * selectedQuantity;
