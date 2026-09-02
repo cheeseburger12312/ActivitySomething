@@ -152,10 +152,11 @@
                                             try {
                                                 selectedQuantity = scanner.nextInt();
                                                 itemTotal = itemPrice * selectedQuantity;
-
-                                                isValidInput = true;
                                                 totalPrice += itemTotal;
                                                 orderSummary += itemName + " P" + itemTotal + "\n";
+
+                                                isValidInput = true;
+                                                
 
                                                 scanner.nextLine();
                                                 System.out.println("");
@@ -180,7 +181,7 @@
                                                         System.out.println("Please enter (Y/N) only");
                                                     }
                                                 } while (!hasValidChoice);
-
+                                                
                                             } catch (InputMismatchException e) {
                                                 System.out.print("Pls only enter a Number: ");
                                                 scanner.nextLine();
@@ -425,15 +426,8 @@
                     System.out.print("\n");
                 }
 
-                System.out.println("================================");
-                System.out.println("          FINAL RECEIPT         ");
-                System.out.println("================================");
-                System.out.println(orderSummary);
-                System.out.println("--------------------------------");
-                System.out.println("Total Amount Due: P" + totalPrice);
-
-                //calculation x Change
                 do {
+                    
                     try {
                         System.out.print("Enter cash amount: P");
                         cashEntered = scanner.nextDouble();
@@ -447,22 +441,27 @@
                         System.out.println("Please enter a valid number for cash.");
                         scanner.nextLine(); // clear invalid input
                     }
-                } while (!isValidCash);
 
                 double change = cashEntered - totalPrice; 
 
                 for (int blankLineIndex = 0; blankLineIndex < 2; blankLineIndex++) {
                     System.out.print("\n");
                 }
-                
+
                 System.out.println("================================");
-                System.out.println("            CHANGE              ");
+                System.out.println("             RECIEPT            ");
                 System.out.println("================================");
-                System.out.println("Cash Tendered : P" + cashEntered);
+                System.out.println(orderSummary);
+                System.out.println("--------------------------------");
                 System.out.println("Change Due    : P" + change);
                 System.out.println("================================");
                 System.out.println("   Thank you for your order!    ");
                 System.out.println("================================");
+                System.out.println("Total Amount: P" + totalPrice);
+
+                    
+                } while (!isValidCash);
+
             } else {
                 System.out.println("\nTransaction cancelled or no items ordered.");
             }
